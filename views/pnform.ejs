@@ -2,9 +2,9 @@
 <%- include('parts/html_topbar.ejs') %>
 
 <header class="container">
-    <div id="consent">
+    <!-- <div id="consent"> -->
         <!--同意書內文-->
-        <div id="consent_page">
+        <!-- <div id="consent_page">
             <h4 style="text-align:center">個人資料提供同意書</h4>
             <p> 本同意書說明Octopath
                 Traveler(以下簡稱為OT)將如何處理本訓練營所蒐集到的個人資料。當您勾選「我同意」並簽署本同意書時，表示您已閱讀、瞭解並同意接受本同意書之所有內容及其後修改變更規定。
@@ -43,9 +43,9 @@
                 </li>
                 <li>您自本同意書取得的任何建議或資訊，無論是書面或口頭形式，除非本同意書條款有明確規定，均不構成本同意條款以外之任何保證。</li>
             </ol>
-        </div>
+        </div> -->
         <!--同意按鈕-->
-        <div>
+        <!-- <div>
             <tr>
                 <td>
                     <div style="margin:10px ;text-align: center">
@@ -64,7 +64,7 @@
 
         </div>
 
-    </div>
+    </div> -->
     <div class="container">
         <% if(typeof success !== 'undefined'){ %>
         <% if (success){ %>
@@ -91,13 +91,13 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="first_name">姓氏:</label>
-                            <input type="text" class="form-control" placeholder="First name" id="first_name"
+                            <input type="text" class="form-control" placeholder="Last name" id="first_name"
                                 name="first_name" autofocus required
                                 value="<%= (locals.body && locals.body.first_name) ? body.first_name : "" %>">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="last_name">名字:</label>
-                            <input type="text" class="form-control" placeholder="Last name" id="last_name"
+                            <input type="text" class="form-control" placeholder="First name" id="last_name"
                                 name="last_name" autofocus required
                                 value="<%= (locals.body && locals.body.last_name) ? body.last_name : "" %>">
                         </div>
@@ -188,7 +188,7 @@
                         <div class="form-group row">
                             <div class="col-md-4">
                                 <label for="psnid">身份證字號:</label>
-                                <input type="text" id="psnid" class="form-control" name="psnid" placeholder="A123456789"
+                                <input type="text" id="psnid" class="form-control" name="psnid" required placeholder="A123456789"
                                     value="<%= (locals.body && locals.body.psnid) ? body.psnid : "" %>">
                                 <div class="error_msg" id="psnid_error_msg" for="psnid"></div>
                             </div>
@@ -199,7 +199,7 @@
                             <div class="col-sm-3">
                                 <label for="city">縣市:</label>
                                 <select name="city" id="city" class="form-control" onchange="citychange()" required>
-                                    <option value="%">---請選擇---</option>
+                                    <option value="">---請選擇---</option>
                                     <option value="基隆市">基隆市</option>
                                     <option value="臺北市">臺北市</option>
                                     <option value="新北市">新北市</option>
@@ -227,22 +227,22 @@
                             <div class="col-sm-3">
                                 <label for="country">鄉鎮:</label>
                                 <select name="country" class="form-control" id="country" required>
-                                    <option value="%">---請選擇---</option>
+                                    <option value="">---請選擇---</option>
                                 </select>
                             </div>
                             <div class="col-sm-5">
                                 <label for="detaladdr">地址:</label>
                                 <input type="text" id="detaladdr" name="detaladdr" class="form-control"
-                                    autocomplete="off"
+                                    autocomplete="off" required
                                     value="<%= (locals.body && locals.body.detaladdr) ? body.detaladdr : "" %>">
                             </div>
                         </div>
                         <!--EMAIL & account-->
                         <div class="form-group row">
                             <div class="col-md-5">
-                                <label for="email">E-mail/Account:</label>
+                                <label for="email">E-mail/UserName:</label>
                                 <input type="email" id="email" name="email" class="form-control"
-                                    placeholder="abc123@xxx"
+                                    placeholder="abc123@xxx" required
                                     value="<%= (locals.body && locals.body.email) ? body.email : "" %>">
                                 <label class="error_msg" id="email_error_msg" for="email"></label>
                             </div>
@@ -250,7 +250,7 @@
                             <div class="col-md-4">
                                 <label for="mobilenum">行動電話:</label>
                                 <input type="tel" id="mobilenum" name="mobilenum" required class="form-control"
-                                    placeholder="09XX XXX XXX"
+                                    placeholder="09xx-xxx-xxx"
                                     value="<%= (locals.body && locals.body.mobilenum) ? body.mobilenum : "" %>">
                                 <label class="error_msg" id="number_error_msg" for="mobilenum"></label>
                             </div>
@@ -259,16 +259,21 @@
                         <div class="form-group row">
                             <div class="col-sm-5">
                                 <label for="password">登入密碼:</label>
-                                <input type="text" id="password" name="password" class="form-control"
-                                    autocomplete="off"
+                                <input type="password" id="password" name="password" class="form-control" autocomplete="off" placeholder="Password" required
                                     value="<%= (locals.body && locals.body.password) ? body.password : "" %>">
                             </div>
+                            <!-- <div class="col-sm-5">
+                                <label for="password1">確認密碼:</label>
+                                <input type="text" id="password1" name="password1" class="form-control"
+                                    autocomplete="off" value="">
+                            </div> -->
                         </div>
                         <!--送出按鈕 及 重寫按鈕-->
                         <tr>
                             <td>
                                 <div style="margin:10px ;">
-                                    <button type="submit" class="btn btn-primary">送出</button>
+                                    <button type="submit" class="btn btn-primary" id="send"
+                                        onclick="checkpassword()">送出</button>
                                     <input type="reset" value="重新填寫" class="btn btn-primary">
                                 </div>
                             </td>

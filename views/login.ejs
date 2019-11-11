@@ -8,24 +8,26 @@
 <% } %>
 
 
-<div class="container" id="dialog">
+<div class="container" id="dialog" style="min-height: 900px;">
     <div class="row">
         <div class="col-md-4">
             <h3>會員登入</h3>
 
             <% if(locals.isLogined) { %>
-            <div class="alert" role="alert" style="background: linear-gradient(rgb(255, 211, 146),rgba(199, 106, 0, 0.541));">
+            <!-- <div class="alert" role="alert" style="background: linear-gradient(rgb(255, 211, 146),rgba(199, 106, 0, 0.541));">
                 <%= loginUser %> 您好<a href="/logout">登出</a>
-            </div>
+            </div> -->
+
+            
             <% } else { %>
             <form method="post">
                 <div class="form-group m-2">
                     <label for="user">帳號</label>
-                    <input type="text" class="form-control" name="user" placeholder="Userid" value="<%= oriUser %>">
+                    <input type="text" class="form-control" name="user" placeholder="UserName" value="<%= oriUser %>" autocomplete="off">
                 </div>
                 <div class="form-group m-2">
                     <label for="password">密碼</label>
-                    <input type="text" class="form-control" name="password" placeholder="Password" value="<%= oriPass %>">
+                    <input type="password" class="form-control" name="password" placeholder="Password" value="<%= oriPass %>" autocomplete="off">
                 </div>
                 <div class="form-group m-3">
                     <button type="submit" class="btn btn-success btn-block">登入</button>

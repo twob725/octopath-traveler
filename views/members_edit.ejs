@@ -1,0 +1,180 @@
+<%- include('parts/html_head.ejs') %>
+<%- include('parts/html_topbar.ejs') %>
+
+
+<header class="container">
+    <div class="container">
+        <% if(typeof success !== 'undefined'){ %>
+            <% if (success){ %>
+                    <div class="alert alert-success" role="alert">
+                        <%= info %>
+                    </div>
+                <% }else{ %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= info %>
+                    </div>
+            <% } %>
+        <% } %>
+    </div>
+
+    <!--memberPF-->
+    <div id="memberPF" class="container">
+        <div style="width:800px;  margin: 50px">
+            <h2 style="text-align:center;">MEMBER PROFILE</h2>
+            <form name="form1" method="POST">
+                <div class="pn form-group">
+
+
+                    <!--姓名-->
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="first_name">姓氏:</label>
+                            <input type="text" class="form-control" placeholder="First name" id="first_name"
+                                name="first_name" autofocus required value="<%= raw.first_name %>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="last_name">名字:</label>
+                            <input type="text" class="form-control" placeholder="Last name" id="last_name"
+                                name="last_name" autofocus required value="<%= raw.last_name %>">
+                        </div>
+                    </div>
+                    <table>
+                        <!--性別-->
+                        <div class="form-group">
+                            <label for="">性別:</label>
+                            <div class="form-group col-md-2">
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender1"
+                                        value="<%= raw.gender %>" checked>
+                                    <label class="form-check-label" for="gender1">
+                                        男性
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender2"
+                                        value="<%= raw.gender %>">
+                                    <label class="form-check-label" for="gender2">
+                                        女性
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--生日-->
+                        <div class="form-row">
+
+                            <div class="form-group col-md-2">
+                                <label for="yearlist1">年份:</label>
+                                <select name="yearlist1" id="yearlist1" class="form-control" required>
+                                    <option value="<%= raw.yearlist1 %>"><%= raw.yearlist1 %></option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="monthlist1">月份:</label>
+                                <select name="monthlist1" id="monthlist1" class="form-control" required>
+                                    <option value="<%= raw.monthlist1 %>"><%= raw.monthlist1 %></option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="daylist1">日期:</label>
+                                <select name="daylist1" id="daylist1" class="form-control" required>
+                                    <option value="<%= raw.daylist1 %>"><%= raw.daylist1 %></option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--身分證字號-->
+
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label for="psnid">身份證字號:</label>
+                                <input type="text" id="psnid" class="form-control" name="psnid" placeholder="A123456789"
+                                    value="<%= raw.psnid %>">
+                                <div class="error_msg" id="psnid_error_msg" for="psnid"></div>
+                            </div>
+                        </div>
+                        <!--戶籍地址-->
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label for="city">縣市:</label>
+                                <select name="city" id="city" class="form-control" onchange="citychange()" required
+                                    value="">
+                                    <option value="<%= raw.city %>"><%= raw.city %></option>
+                                    <option value="基隆市">基隆市</option>
+                                    <option value="臺北市">臺北市</option>
+                                    <option value="新北市">新北市</option>
+                                    <option value="桃園市">桃園市</option>
+                                    <option value="新竹市">新竹市</option>
+                                    <option value="新竹縣">新竹縣</option>
+                                    <option value="苗栗縣">苗栗縣</option>
+                                    <option value="臺中市">臺中市</option>
+                                    <option value="彰化縣">彰化縣</option>
+                                    <option value="南投縣">南投縣</option>
+                                    <option value="雲林縣">雲林縣</option>
+                                    <option value="嘉義市">嘉義市</option>
+                                    <option value="嘉義縣">嘉義縣</option>
+                                    <option value="臺南市">臺南市</option>
+                                    <option value="高雄市">高雄市</option>
+                                    <option value="屏東縣">屏東縣</option>
+                                    <option value="臺東縣">臺東縣</option>
+                                    <option value="花蓮縣">花蓮縣</option>
+                                    <option value="宜蘭縣">宜蘭縣</option>
+                                    <option value="澎湖縣">澎湖縣</option>
+                                    <option value="金門縣">金門縣</option>
+                                    <option value="連江縣">連江縣</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="country">鄉鎮:</label>
+                                <select name="country" class="form-control" id="country" required>
+                                    <option value="<%= raw.country %>"><%= raw.country %></option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <label for="detaladdr">地址:</label>
+                                <input type="text" id="detaladdr" name="detaladdr" class="form-control"
+                                    autocomplete="off" value="<%= raw.detaladdr %>" required>
+                            </div>
+                        </div>
+                        <!--EMAIL & account-->
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <label for="email">E-mail/Account:</label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="abc123@xxx" value="<%= raw.email %>"  required>
+                                <label class="error_msg" id="email_error_msg" for="email"></label>
+                            </div>
+                            <!--手機-->
+                            <div class="col-md-4">
+                                <label for="mobilenum">行動電話:</label>
+                                <input type="tel" id="mobilenum" name="mobilenum" required class="form-control"
+                                    placeholder="09xx-xxx-xxx" value="<%= raw.mobilenum %>">
+                                <label class="error_msg" id="number_error_msg" for="mobilenum"></label>
+                            </div>
+                        </div>
+                        <!--password-->
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                <label for="password">登入密碼:</label>
+                                <input type="text" id="password" name="password" class="form-control" autocomplete="off"
+                                    value="<%= raw.password %>" required>
+                            </div>
+                        </div>
+                        <!--送出按鈕 及 重寫按鈕-->
+                        <tr>
+                            <td>
+                                <div style="margin:10px ;">
+                                    <button type="submit" class="btn btn-primary" id="send"
+                                        onclick="checkpassword()">送出</button>
+                                    <input type="button" value="取消" class="btn btn-primary" onclick="history.back()">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</header>
+
+<%- include('parts/html_foot.ejs') %>

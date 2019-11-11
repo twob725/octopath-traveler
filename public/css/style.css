@@ -15,7 +15,7 @@ body {
     margin:0px;
     padding:0px;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-color: rgb(255, 211, 146);
     
 }
@@ -46,18 +46,20 @@ td.tvr{
     text-overflow:ellipsis;
     max-width: 300px;
     vertical-align: middle;
+    
 }
 
 div.tvr{
     text-align: center;
     padding:10px 60px;
+    cursor: pointer;
 }
 
 
 #topbar{
     text-align: right;
     border:1px solid rgb(5, 2, 2);
-    height: 31px;    
+    height: 32px;    
     margin-top:0px;
     
 
@@ -94,26 +96,36 @@ div.tvr{
 
 
 #alfyn{
-    font-size: 70%;
-    
+    font-size: 70%;    
 }
+#cyrus{
+    font-size: 70%;    
+}
+#haanit{
+    font-size: 70%;    
+}
+
 
 .alfyn{
     background-color: cornsilk;
     border-radius:9px;
     text-align: center;
-    border:1px double darkgoldenrod;
-    margin-bottom: 10px;
+    border:2px double darkgoldenrod;
+    margin: 15px 15px;
 }
 
  
 .slider {
     clear: both;
-    padding: 0;
-    margin: 0;
-    z-index: 0;
-    clear: both;
-    display: block;
+    padding: 20px auto;
+    
+    z-index: 0;    
+    /* display: flex;*/
+    justify-content: center; 
+    /* justify-content: space-between; */
+    display: flex;
+    margin: 20px auto;
+    /* border:1px solid white; */
 }
 
 
@@ -160,3 +172,4 @@ label.error_msg{
     height: 600px;
     overflow-x:hidden;
 }
+

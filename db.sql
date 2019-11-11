@@ -1,8 +1,6 @@
-﻿CREATE DATABASE  IF NOT EXISTS `octopath` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-USE `octopath`;
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: octopath
+-- Host: localhost    Database: octopath
 -- ------------------------------------------------------
 -- Server version	8.0.13
 
@@ -38,10 +36,10 @@ CREATE TABLE `members` (
   `detaladdr` char(25) DEFAULT NULL,
   `email` char(55) DEFAULT NULL,
   `mobilenum` char(25) DEFAULT NULL,
-  `password` int(25) NOT NULL,
+  `password` char(25) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +48,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES (2,'張','無際','男','2001','1','1','G123321123','臺北市','大同區103','中山北路','666@yahoo','09123456789',1234);
+INSERT INTO `members` VALUES (2,'張','無忌','男','1990','5','13','H1233214562','臺北市','松山區105','海邊路','chang@yahoo','0988779887','1234'),(5,'小','欸啦','男','1991','3','14','E123321000','臺北市','萬華區108','中山北路','ala@yahoo','0966444555','1234'),(8,'趙','威','女','1988','4','8','A223666444','台北市','松山區','民權東路1號','aaa@yahoo','0988779486','1234'),(20,'令','狐沖','男','1978','9','25','N123861244','台北市','信義區','信義路四段9號','lin@yahoo','0933345862','1234'),(21,'王','飛虎','男','1966','2','7','K124785693','台北市','大同區','和平路8號','wang@yahoo','09125896488','1234'),(22,'韋','小寶','男','1996','11','23','W128964287','台北市','中山區','中山北路78號','wee@yahoo','09196325874','1234'),(23,'111','333','男','2001','1','1','A123456789','基隆市','仁愛區200','41444','123@789888','0922554488','1234'),(24,'Li','Vince','男','2001','1','1','A123456789','屏東縣','崁頂鄉137','大平路','bfbgb@77777','0911135548','zxc123'),(42,'王','大名','男','1990','1','1','G1234567872','新北市','林口區244','青山路11號','123@122','0923456343','1234'),(46,'王','曉華','男','1984','4','5','A123456798','臺北市','大安區106','中山北路','123@yahoo','0912288555','1234');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -63,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-13 14:24:46
+-- Dump completed on 2019-08-16 16:34:53

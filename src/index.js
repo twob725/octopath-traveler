@@ -13,7 +13,7 @@ const bluebird = require('bluebird');
 //DB set//
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'twob',
+    user: 'root',
     password: 'root',
     database: 'octopath'
 });
@@ -22,7 +22,7 @@ db.connect();
 ////
 
 
-const upload = multer({dest:'tmp_uploads/'});
+const upload = multer({ dest: 'tmp_uploads/' });
 //載入express//
 const app = express();
 ////
@@ -63,12 +63,12 @@ app.use(session({
 
 app.use('/', (req, res, next) => {
 
-    console.log('111:',req.url);
+    // console.log('111:',req.url);//測試當前位置
 
     if (req.session.loginUser) {
-        res.locals.isLogined = !! req.session.loginUser;
+        res.locals.isLogined = !!req.session.loginUser;
         res.locals.loginUser = req.session.loginUser;
-        
+
     }
     next();
 });
@@ -110,17 +110,37 @@ app.get('/pnform', (req, res) => {
 // });
 
 
+//未登入防止措施//檢查有無登入//
+app.use('/pnform/edit', (req, res, next) => {
+    if (req.session.loginUser) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+});
+app.use('/pnform/mblist', (req, res, next) => {
+    if (req.session.loginUser) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+});
+
+/////
+
+
+
 app.get('/pnform/mblist', (req, res) => {
     var sql = "SELECT * FROM `members`";
     db.query(sql, (error, results, fields) => {
         var listInfo = '';
-        if(req.session.listInfo){
+        if (req.session.listInfo) {
             listInfo = req.session.listInfo;
         }
         res.render('mblist', {
-           rows: results,
-           title:'資料列表',
-           listInfo: listInfo,
+            rows: results,
+            title: '資料列表',
+            listInfo: listInfo,
         });
     });
 });
@@ -154,18 +174,18 @@ app.post('/login', (req, res) => {
         req.body.password
     ], (error, results) => {
 
-        console.log('201:',results);
+        console.log('201:', results);
 
-        if(results.length===1){
+        if (results.length === 1) {
             req.session.loginUser = req.body.user;
-            
+
         } else {
             req.session.flashMsg = '帳號或密碼錯誤';
             req.session.oriUser = req.body.user;
             req.session.oriPass = req.body.password;
         }
-         res.redirect('/login');
-    });    
+        res.redirect('/pnform/mblist');
+    });
 });
 // app.post('/login', (req, res) => {
 //     if (req.body.user === 'twob' && req.body.password === '1234') {
@@ -185,18 +205,20 @@ app.get('/logout', (req, res) => {
 
 
 
+
+
+
+
 //add//
 app.get('/pnform', (req, res) => {
     res.render('pnform')
 });
 app.post('/pnform', (req, res) => {
     var data = {
-        success: false,
+        success: false,//success預設為false
         info: '',
         body: req.body,//把回應的資料在回應回去 echo
     };
-
-    //測試key in data
     // console.log(req.body)
 
     // var sql = 'INSERT INTO `members` (`first_name`,`last_name`) VALUES (?,?)';
@@ -216,7 +238,7 @@ app.post('/pnform', (req, res) => {
     //     });
     var sql = 'INSERT INTO `members` (`first_name`,`last_name`,`gender`,`yearlist1`,`monthlist1`,`daylist1` ,`psnid`,`city`,`country`,`detaladdr`,`email`,`mobilenum`,`password`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)';
     db.query(sql,
-        [req.body.first_name, req.body.last_name, req.body.gender, req.body.yearlist1, req.body.monthlist1, req.body.daylist1, req.body.psnid, req.body.city, req.body.country, req.body.detaladdr, req.body.email, req.body.mobilenum,req.body.password],
+        [req.body.first_name, req.body.last_name, req.body.gender, req.body.yearlist1, req.body.monthlist1, req.body.daylist1, req.body.psnid, req.body.city, req.body.country, req.body.detaladdr, req.body.email, req.body.mobilenum, req.body.password],
         function (error, results) {
             if (error) {
                 // res.json(error);
@@ -265,6 +287,79 @@ app.get('/pnform/mblist/remove/:id', (req, res) => {
     res.send(req.params.id);
 });
 ////
+
+//edit//
+app.get('/pnform/edit/:id', (req, res) => {
+    var id = parseInt(req.params.id);
+    if (isNaN(id)) {
+        res.redirect('/pnform/mblist');
+    } else {
+        let sql = 'SELECT * FROM `members` WHERE id=?';
+        db.query(sql, [id], (error, results) => {
+            if (results && results[0]) {
+
+                res.render('members_edit', {
+                    raw: results[0]
+                });
+            }
+        });
+
+    }
+
+});
+
+
+app.post('/pnform/edit/:id', (req, res) => {
+    var data = {
+        success: false,
+        type: 'danger',
+        info: '',
+        raw: req.body,
+    };
+
+    var id = parseInt(req.params.id);
+    if (isNaN(id)) {
+        res.redirect('/pnform/mblist');
+    } else {
+        let sql = "UPDATE `members` SET `first_name`=?,`last_name`=?,`gender`=?,`yearlist1`=?,`monthlist1`=?,`daylist1`=? ,`psnid`=?,`city`=?,`country`=?,`detaladdr`=?,`email`=?,`mobilenum`=?,`password`=? WHERE id=?";
+
+        db.query(sql,
+            [
+                req.body.first_name,
+                req.body.last_name,
+                req.body.gender,
+                req.body.yearlist1,
+                req.body.monthlist1,
+                req.body.daylist1,
+                req.body.psnid,
+                req.body.city,
+                req.body.country,
+                req.body.detaladdr,
+                req.body.email,
+                req.body.mobilenum,
+                req.body.password,
+                id
+            ],
+            function (error, results) {
+                if (error) {
+                    res.json(error);
+                    data.info = '資料修改發生錯誤'
+                } else {
+                    if (results.affectedRows === 1) {
+                        data.success = true;
+                        data.type = 'success';
+                        data.info = '資料修改成功';
+                    }
+                }
+                res.render('pnform', data);
+            });
+    }
+});
+
+
+
+
+
 
 
 

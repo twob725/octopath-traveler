@@ -11,7 +11,8 @@
 
 // }
 
-$(document).ready(function loadDate1() {
+$(document).ready(
+    function loadDate1() {
     var now = new Date();
     var year = now.getYear();//获得年份，不过是1900年到现在的数值  
     year = year + 1900 - 18;//因为要4位数字年份又要求使用者大于18岁  
@@ -21,7 +22,6 @@ $(document).ready(function loadDate1() {
         yearList.options[i] = new Option(addYear, addYear);
     }
     yearChange1();
-
 });
 
 

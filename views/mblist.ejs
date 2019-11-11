@@ -1,12 +1,12 @@
 <%- include('parts/html_head.ejs') %>
 <%- include('parts/html_topbar.ejs') %>
 
-<div class="container">
+<div class="container" style="min-height:900px">
     <div class="col col-lg-10">
         <% if(locals.listInfo){ %>
-        <div class="alert alert-<%= listInfo.type %>" role="alert">
-            <%= listInfo.text %>
-        </div>
+            <div class="alert alert-<%= listInfo.type %>" role="alert">
+                <%= listInfo.text %>
+            </div>
 
         <% } %>
 
@@ -62,6 +62,9 @@
             function delete_one(id) {
                 if (confirm(`是否刪除整筆編號 ${id} 的資料?`)) {
                     location.href = '/pnform/mblist/remove/' + id;
+                    // setTimeout(myfunction(),3000);
+                } else {
+                    location.href = '/pnform/mblist';
                 }
             }
         </script>
