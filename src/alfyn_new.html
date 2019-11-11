@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.js">
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../function.js"></script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OCTOPATH TRAVELER</title>
+</head>
+
+<body>
+    <header>
+        <div style="background-color: darkgoldenrod;text-align: right;">
+            <span>
+                <a href="/login.html">登入會員</a>
+            </span>
+            <span>/</span>
+            <span style="margin-right: 10px;">
+                <a href="/login.html">註冊</a>
+            </span>
+        </div>
+        <div class="container" style="text-align: left; margin-top:15px ;">
+            <div>
+                <a href="/index.html">
+                    <img src="../images/logo.png" height="120" width="">
+                </a>
+            </div>
+            <div style="text-align: right ;">
+                <audio src="../bgm/Octopath Traveler.mp3" autoplay controls loop></audio>
+            </div>
+
+        </div>
+        <div class="container">
+
+            <tr>
+                <td>
+                    <a href="/index.html">
+                        <img id="hover1" src="../images/nav_01.png" height="74" width="106">
+                    </a>
+                </td>
+                <td>
+                    <a href="/index.html">
+                        <img id="hover2" src="../images/nav_02.png" height="74" width="106">
+                    </a>
+                </td>
+                <td>
+                    <a href="/index.html">
+                        <img id="hover3" src="../images/nav_04.png" height="74" width="106">
+                    </a>
+                </td>
+            </tr>
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+    </header>
+    <article>
+        <div>
+
+            <!--tabs2-->
+            <div class="container" id="tabs-2">
+                <div
+                    style="background-color: cornsilk;border-radius:9px;text-align: center;border:1px double darkgoldenrod;margin-bottom: 10px;">
+                    <tr>
+                        <td>
+                            <h6>Alfyn Greengrass／艾爾芬．古林格拉斯</h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <span>職業:藥師</span><br></td>
+                    </tr>
+                    <tr>
+                        <td> <span>CV:關智一／Greg Chun</span><br></td>
+                    </tr><br>
+                </div>
+
+                <div style="float:left;">
+                    <img id="hover1" src="../images/traveler/alfyn_page.jpg" height="400" width="auto"
+                        style="border-radius: 60%/40%">
+                </div><br>
+
+                <!--tabs2-1-->
+                <div style="float:left;">
+                    <h2>職業技能</h2>
+                    <table border="1" style="margin: 5px;background-color: cornsilk">
+                        <tr>
+                            <th>
+                                応急手当／急救措施
+                                <div class="skill_img">
+                                    <img id="alfyn_sk_1" src="../images/traveler/alfyn_sk_1.png" width="50px"
+                                        height="50" style="margin: 5px;" onmouseover="">
+                                </div>
+                            </th>
+                            <td>
+                                味方単体にHP回復の効果を与える
+                            </td>
+                            <td>
+                                使一位友方恢復HP
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                氷柱／冰柱
+                                <div class="skill_img">
+                                    <img id="alfyn_sk_1" src="../images/traveler/alfyn_sk_2.png" width="50px"
+                                        height="50" style="margin: 5px;" onmouseover="">
+                                </div>
+                            </th>
+                            <td>敵単体に氷属性のダメージを与える</td>
+                            <td>給予單一敵人「冰屬性」的傷害</td>
+                        </tr>
+                        <tr>
+                            <th>健全化／健全化</th>
+                            <td>味方単体に状態異常無効の効果を2ターン付与</td>
+                            <td>給予一位友方2回合「異常狀態無效」的效果</td>
+                        </tr>
+
+                        <tr>
+                            <th>大切断／大切斷</th>
+                            <td>敵単体に斧でダメージを与える</td>
+                            <td>給予單一敵人「斧」的傷害</td>
+                        </tr>
+                        <tr>
+                            <th> 毒処方／毒處方 </th>
+                            <td> 敵単体に毒の効果を2ターン付与 </td>
+                            <td> 給予單一敵人2回合「毒」的效果 </td>
+                        </tr>
+
+                        <tr>
+                            <th> 復活手当／復活措施 </th>
+                            <td> 味方単体を復活させる </td>
+                            <td> 使一位友方復活 </td>
+                        </tr>
+                        <tr>
+                            <th> 死中活擊断／死中活擊斷 </th>
+                            <td> 敵全体に斧でダメージを与える。自身の残りHPが低いほど大ダメージ </td>
+                            <td> 給予敵方全體「斧」的傷害。自己剩下的HP越低傷害就越高 </td>
+                        </tr>
+
+                        <tr>
+                            <th> 霊薬公ドーターの恩恵／<br> 靈藥公杜塔的恩惠 </th>
+                            <td> 奥義。味方単体に、アイテムの効力を全体化する効果を3ターン付与 </td>
+                            <td> 奧義。使一位友方在3回合期間內獲得「單一對象的道具的效力變為全體化」的效果。 </td>
+                        </tr>
+
+
+
+
+
+
+                    </table>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="container" id="tabs-3">
+
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>

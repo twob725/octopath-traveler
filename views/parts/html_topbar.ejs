@@ -1,0 +1,40 @@
+<header>
+    <!--topbar-->
+
+    <div style="float: left">
+        <a href="">
+            <img src="/images/Nintendo_Switch_logo.jpg" height="30" width="">
+        </a>
+    </div>
+
+
+    <div id="topbar">
+
+        <% if(locals.loginUser){ %>
+            <a><%= "Hello ~" + locals.loginUser %></a>
+            <span>/</span>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        <% } else { %>
+
+            <a href="/login">
+                <i class="fas fa-unlock" onfocus=""></i>
+            </a>
+            <span>/</span>
+            <a href="/pnform"><i class="fas fa-user-plus" style="margin-right: 10px;"></i></a>
+        <% } %>       
+       
+    </div>
+
+
+    <div class="container" style="text-align: left; margin-top:15px ;">
+        <div>
+            <a href="./">
+                <img src="/images/logo.png" height="120" width="">
+            </a>
+        </div>
+        <div style="text-align: right ;">
+            <audio src="/bgm/Octopath Traveler.mp3" autoplay controls loop></audio>
+        </div>
+    </div>

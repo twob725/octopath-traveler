@@ -1,0 +1,35 @@
+<%- include('parts/html_head.ejs') %>
+<%- include('parts/html_topbar.ejs') %>
+<div class="container" style="background: linear-gradient(rgb(255, 211, 146),rgba(199, 106, 0, 0.541));">
+    <div class="col col-lg-10">
+        <table class="table table-striped">
+
+            <thead>
+            <tr>
+                <th scope="col">Sid
+                </th>
+                <th scope="col">Sales id
+                </th>
+                <th scope="col">Name
+                </th>
+                <th scope="col">Birthday
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for(let i in sales){ %>
+                <tr>
+                    <td scope="row"><i class="fas fa-hammer"></i></td>
+                    <td scope="row"><%= sales[i].sid %></td>
+                    <td scope="row"><%= sales[i].sales_id %></td>
+                    <td scope="row"><%= sales[i].name %></td>
+                    <td scope="row"><%= sales[i].birthday2 %></td>
+                </tr>
+            <% } %>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<%- include('parts/html_foot') %>

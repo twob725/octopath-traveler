@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <script src="./js/jquery.cycle.all.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Traveler</title>
+
+
+    <style>
+        #slider {
+            clear: both;
+            padding: 0;
+            margin: 0;
+            z-index: 0;
+            clear: both;
+            display: block;
+            border: 10px double black;
+        }
+    </style>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#slider').cycle({
+                fx: 'fade', speed: 2000,
+                timeout: 1000,
+                random: 1
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bgm_controller">
+        <div class="buttons clearfix">
+            <div class="speaker" id="volume">
+                <div class="volume">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="switch">
+                <div id="bgmOn">On</div>
+            </div>
+            <div class="switch">
+                <div id="bgmOff">Off</div>
+            </div>
+        </div>
+        <div class="titlelist">
+            <div class="controller">
+                <div class="prev" id="bgmPrev"></div>
+                <div class="label"></div>
+                <div class="next" id="bgmNext"></div>
+            </div>
+            <div class="title" id="titleBox">
+                <div class="inner"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contents" data-controller="contents">
+        <div class="bg" data-controller="movie_bg"></div>
+        <section class="contents_inner" data-controller="contents_inner">
+            <h2><img src="../assets/images/movie/title.png" height="64" width="294" alt="MOVIE"></h2>
+            <section class="block">
+                <div class="block_inner">
+                    <h3><img src="./images/movies/sub_title_01.png" height="25" width="667"
+                            alt="OCTOPATH TRAVELER NEWS MOVIE"></h3>
+                    <div class="slider" data-controller="news">
+                        <ul class="videolist">
+                            <li>
+                                <a href="https://youtu.be/_5pweox1Io8" data-video-id="_5pweox1Io8">
+                                    <img src="./images/movies/news_05.jpg" height="387" width="688" alt="紹介映像 総集編">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/h0c2wt3ZrvU" data-video-id="h0c2wt3ZrvU">
+                                    <img src="./images/movies/news_04.jpg" height="387" width="688" alt="紹介映像 5月編">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/X1JBHl9vRWo" data-video-id="X1JBHl9vRWo">
+                                    <img src="./images/movies/news_03.jpg" height="387" width="688" alt="紹介映像 4月編">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/kPor-DgiHBE" data-video-id="kPor-DgiHBE">
+                                    <img src="./images/movies/news_02.jpg" height="387" width="688" alt="紹介映像 3月編">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/BmjslPS7nh4" data-video-id="BmjslPS7nh4">
+                                    <img src="./images/movies/news_01.jpg" height="387" width="688"
+                                        alt="project OCTOPATH TRAVELER [Nintendo Direct 2017.9.14]">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="block">
+                <div class="block_inner">
+                    <h3><img src="../assets/images/movie/sub_title_02.png" height="25" width="159" alt="TRAILER"></h3>
+                    <div class="slider" data-controller="trailer">
+                        <ul class="videolist">
+
+
+                            <li>
+                                <a href="https://youtu.be/UQGSjy0DWNU" data-video-id="UQGSjy0DWNU">
+                                    <img src="../assets/images/movie/thumbs/trailer_07.jpg" height="387" width="688"
+                                        alt="E3 Trailer">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/Cybr4Mwt5w4" data-video-id="Cybr4Mwt5w4">
+                                    <img src="../assets/images/movie/thumbs/trailer_06.jpg" height="387" width="688"
+                                        alt="Web CM Vol.2">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/tuZg9WaXtDE" data-video-id="tuZg9WaXtDE">
+                                    <img src="../assets/images/movie/thumbs/trailer_05.jpg" height="387" width="688"
+                                        alt="Web CM Vol.1">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/GBAukVbwTxQ" data-video-id="GBAukVbwTxQ">
+                                    <img src="../assets/images/movie/thumbs/trailer_04.jpg" height="387" width="688"
+                                        alt="体験版アンケートフィードバック">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/FuI-VluDNLE" data-video-id="FuI-VluDNLE">
+                                    <img src="../assets/images/movie/thumbs/trailer_03.jpg" height="387" width="688"
+                                        alt="楽曲収録紹介映像">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/PFewePcJcSI" data-video-id="PFewePcJcSI">
+                                    <img src="../assets/images/movie/thumbs/trailer_02.jpg" height="387" width="688"
+                                        alt="2nd Trailer">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/97vYf9t3GU8" data-video-id="97vYf9t3GU8">
+                                    <img src="../assets/images/movie/thumbs/trailer_01.jpg" height="387" width="688"
+                                        alt="Trailer">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+</body>
+
+</html>
