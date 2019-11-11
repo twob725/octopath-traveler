@@ -32,7 +32,14 @@ Spec:
 並於下次登入時，從MySQL資料庫確認是否為會員，
 進而登入本系統。
 
-
+如何使用
+1.開啟CMD
+2.確認npm、nodejs版本
+  npm -v
+  node -v
+3.開啟server
+  node src\index.js
+4.Browser輸入"127.0.0.1:3010"
 
 
 參考資料:
